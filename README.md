@@ -1,7 +1,7 @@
 
 # 简介
 
-环境：Python3.6 + Django3 + Wordpress，Yusi主题 制作的个人主页
+环境：Python3.7.4 + Django3.0 + Wordpress，Yusi主题 制作的个人主页
 
 作者：
 
@@ -17,9 +17,11 @@
 基于 Python3.6 + Django1.11  1：1 仿制崔庆才个人博客
 
 ### 分支online
+基于 Python3.7.4 + Django3.0 + Wordpress
+目前重点修改和更新
+在线运行的项目 [个人主页]，此项目后期有任何功能升级都会更新此分支，也会不断添加新功能在此分支
 
-在线运行的项目 [个人主页](https://stormsha.com)，此项目后期有任何功能升级都会更新此分支，也会不断添加新功能在此分支
-
+依据一下修改
 ## 博客效果
 
 https://stormsha.com
