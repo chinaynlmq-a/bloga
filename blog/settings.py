@@ -89,7 +89,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '123456',
         'NAME': 'blog',
         # 避免映射数据库时出现警告
         'OPTIONS': {

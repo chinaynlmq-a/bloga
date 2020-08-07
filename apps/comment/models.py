@@ -16,11 +16,11 @@ class CommentUser(models.Model):
 
 # 评论信息表
 class Comment(models.Model):
-    author = models.ForeignKey(CommentUser, related_name='%(class)s_related', verbose_name='评论人')
+    author = models.ForeignKey(CommentUser, related_name='%(class)s_related', verbose_name='评论人',on_delete=models.CASCADE)
     create_date = models.DateTimeField('创建时间', auto_now_add=True)
     content = models.TextField('评论内容')
-    parent = models.ForeignKey('self', verbose_name='父评论', related_name='note_get', blank=True, null=True)
-    rep_to = models.ForeignKey('self', verbose_name='回复', related_name='note_create', blank=True, null=True)
+    parent = models.ForeignKey('self', verbose_name='父评论', related_name='note_get', blank=True, null=True,on_delete=models.CASCADE)
+    rep_to = models.ForeignKey('self', verbose_name='回复', related_name='note_create', blank=True, null=True,on_delete=models.CASCADE)
     is_read = models.BooleanField('是否已读', default=False)
 
     class Meta:
@@ -62,7 +62,7 @@ class Comment(models.Model):
 # 文章评论区，据继承评论信息表
 class ArticleComment(Comment):
     # 记录评论属于哪篇文章
-    belong = models.ForeignKey(Article, related_name='article_comments', verbose_name='所属文章')
+    belong = models.ForeignKey(Article, related_name='article_comments', verbose_name='所属文章',on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = '文章评论'
