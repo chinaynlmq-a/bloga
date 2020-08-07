@@ -41,14 +41,15 @@ sitemaps = {
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # 用户
-    url(r'^accounts/', include('user.urls', namespace='accounts')),
+    #url(r'^accounts/', include('user.urls', namespace='accounts')),
+    url(r'^accounts/', include(('user.urls','accounts'), namespace='accounts')),
     # storm
-    url('', include('storm.urls', namespace='blog')),  # blog
+    url('', include(('storm.urls','blog'), namespace='blog')),  # blog
     # 评论
-    url(r'^comment/', include('comment.urls', namespace='comment')),  # comment
+    url(r'^comment/', include(('comment.urls','comment'), namespace='comment')),  # comment
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),  # 网站地图
     url(r'^feed/$', AllArticleRssFeed(), name='rss'),   # rss订阅
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # 加入这个才能显示media文件
 
 if settings.API_FLAG:
-    urlpatterns.append(url(r'^api/v1/', include(router.urls, namespace='api')))    # restframework
+    urlpatterns.append(url(r'^api/v1/', include((router.urls,'api'), namespace='api')))    # restframework
