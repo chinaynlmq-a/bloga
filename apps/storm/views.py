@@ -7,7 +7,8 @@ import time
 from django.views import generic
 from django.conf import settings
 from django.utils.text import slugify
-from django.shortcuts import render, HttpResponse, render_to_response
+# from django.shortcuts import render, HttpResponse, render_to_response
+from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import Article, BigCategory, Category, Tag
@@ -339,5 +340,5 @@ class MySearchView(SearchView):
 
 
 def page_not_found(request):
-    return render_to_response('404.html')
+    return render(request,'404.html','')
 
