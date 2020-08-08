@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Article, Tag, Category, Carousel, Keyword, FriendLink, BigCategory
 
-
+#装饰器 使用装饰函数在admin管理后台中注册
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     # 这个的作用是给出一个筛选机制，一般按照时间比较好
