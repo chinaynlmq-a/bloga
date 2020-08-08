@@ -3,6 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
+    #告诉它你要使用哪个配置文件来启动服务
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "blog.settings")
     try:
         from django.core.management import execute_from_command_line
