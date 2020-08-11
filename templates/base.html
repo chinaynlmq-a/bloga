@@ -100,6 +100,7 @@
     {% block top-file %}
     {% endblock top-file %}
     <link rel="stylesheet" href="{% static 'highlights/github.css' %}">
+    <link rel='stylesheet' id='style-css' href='{% static 'css/comtop.css' %}' type='text/css' media='all'/>
     <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
 
@@ -177,14 +178,18 @@
         <div class="container-inner">
             <!--头部-->
             <div class="yusi-logo">
-                    <a href="/">
-                        <h1>
-                            <span class="yusi-mono">静觅</span> |
-                            <span class="yusi-bloger">StormSha的个人博客</span>
-                        </h1>
-                    </a>
+                <a href="/" class="topa"><span class="yusi-mono">汇网思</span></a>
+                <div class="search-expand">
+                    <div class="search-expand-inner">
+                        <form class="nav-item navbar-form mr-2 py-md-2" role="search" method="get" id="searchform" action="{% url 'blog:search' %}">
+                            <div class="input-group">
+                                <input type="search" name="q" class="search" placeholder="搜索" required=True>
+                                <button class="searchButoon" type="submit"><i class="fa fa-search"></i></button>
+                            </div><!-- /input-group -->
+                        </form>
+                    </div>
                 </div>
-
+            </div>
             <!--导航条-->
             <div id="nav-header" class="navbar">
                 <ul class="nav">
@@ -223,16 +228,16 @@
                     <!--搜索框-->
                     <li style="float:right;">
                         <div class="toggle-search"><i class="fa fa-search"></i></div>
-                        <div class="search-expand">
+                        <!-- <div class="search-expand">
                             <div class="search-expand-inner">
                                 <form class="nav-item navbar-form mr-2 py-md-2" role="search" method="get" id="searchform" action="{% url 'blog:search' %}">
                                     <div class="input-group">
                                         <input type="search" name="q" class="search" placeholder="搜索" required=True>
                                         <button class="search" type="submit" style="position: absolute;height: 30px"><i class="fa fa-search"></i></button>
-                                    </div><!-- /input-group -->
+                                    </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                     </li>
                     <!--搜索框结束-->
 
