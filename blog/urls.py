@@ -39,6 +39,8 @@ sitemaps = {
 }
 
 urlpatterns = [
+    # 添加娱乐
+    url(r'^yule/', include(('yule.urls','yule'), namespace='yule')),
     url(r'^admin/', admin.site.urls),
     # 用户
     #url(r'^accounts/', include('user.urls', namespace='accounts')),

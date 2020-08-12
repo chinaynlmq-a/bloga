@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'comment',  # 评论
     'haystack',  # 全文搜索应用 这个要放在其他应用之前
     'rest_framework',   # API
+    'yule', #娱乐频道
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blog.urls'
 
+#配置模版引擎
+'''
+DIRS:定义了一个目录列表，模板引擎按列表顺序搜索这些目录以查找模板源文件。
+APP_DIRS:告诉模板引擎是否应该进入每个已安装的应用中查找模板。通常请将该选项保持为True。
+OPTIONS
+'''
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
