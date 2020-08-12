@@ -196,9 +196,13 @@
                     <!--获取一级分类信息-->
                     {% get_bigcategory_list as bigcategory %}
                     <li id="menu-item-44"
-                        class="menu-item menu-item-type-custom menu-item-object-custom {% if not category %}current-menu-item current_page_item{% endif %} menu-item-home menu-item-44"><a
-                            href="/">首页</a></li>
-
+                        class="menu-item menu-item-type-custom menu-item-object-custom {% if not category %}current-menu-item current_page_item{% endif %} menu-item-home menu-item-44">
+                        <a href="/">首页</a>
+                    </li>
+                    <li id="menu-item-44"
+                    class="menu-item menu-item-type-custom menu-item-object-custom {% if not category %}current-menu-item current_page_item{% endif %} menu-item-home menu-item-44">
+                    <a href="/test">娱乐</a>
+                    </li>
                     <!--导航条一级分类渲染-->
                     {% for big in bigcategory %}
 
@@ -210,12 +214,14 @@
                             <li id="menu-item-14"
                                     class="menu-item menu-item-type-taxonomy menu-item-object-category {% if category == big.slug %}current-menu-item {% endif %} menu-item-has-children menu-item-14">
                                     <a href="{% url 'blog:category' big.slug '' %}">{{ big.name }}</a>
+                                    {% comment "暂时不用二级" %}
                                         <ul class="sub-menu">
                                             <!--导航条二级分类渲染-->
                                             {% for c in cate %}
                                                     <li id="menu-item-19" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-19"><a href="{% url 'blog:category'  big.slug   c.slug  %}">{{ c.name }}</a></li>
                                             {% endfor %}
                                         </ul>
+                                        {% endcomment %}
                             </li>
 
                         <!--无二级分类的一级分类渲染-->
