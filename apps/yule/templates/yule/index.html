@@ -1,0 +1,130 @@
+{%extends 'base_right.html'%}
+{% load static %}
+{% block body%}
+{% comment %}
+    <div class="content-wrap feed-wrapper">
+      <div class="feed-common feed-four-pic">
+        <div class="feed-attr-click">
+          <h3 class="feed-four-title feed-h3-style">
+            <a href="" class="feed-visited theme__color__hover"></a>
+          </h3>
+        </div>
+        <div class="feed-pic feed-pic-wrapper feed-click-pic">
+          <a class="feed-four-location" href="#">
+            <img src="" class="feed-pic-style">
+          </a>
+          <a class="feed-four-location" href="#">
+            <img src="" class="feed-pic-style">
+          </a>
+          <a class="feed-four-location" href="#">
+            <img src="" class="feed-pic-style">
+          </a>
+          <a class="feed-four-location" href="#">
+            <img src="" class="feed-pic-style">
+          </a>
+        </div>
+        <div class="feed-no-info">
+          <div class="feed-insert-tag">
+            <!-- 作者图标-->
+            <a href="#" class="feed-auth">
+              <img src="" class="feed-info-pic">
+            </a>
+            <span class="feed-info-time">
+              <!-- 作者名称-->
+            </span>
+            <span class="feed-dot">·</span>
+            <!-- 发布时间-->
+            <span class="feed-publish"></span>
+          </div>
+          <div class="feed-nopic-pv"></div>
+        </div>
+      </div>
+
+      <div class="feed-common feed-four-pic">
+        <div class="feed-show-one feed-click-pic">
+          <a href="#" target="_blank"><img src="" class="feed-pic-style"/></a>
+        </div>
+        <div class="feed-show-info feed-attr-click">
+           <h3 class="feed-h3-style feed-one-title">
+             <a href="#"></a>
+           </h3>
+           <div class="feed-one-info">
+             <div class="feed-insert-tag">
+               <a href="#" class="feed-auth">
+                 <img src="" class="feed-info-pic">
+               </a>
+               <span class="feed-info-time"></span>
+               <span class="feed-dot">·</span>
+               <span class="feed-publish"></span>
+             </div>
+             <div class="feed-nopic-pv"></div>
+           </div>
+        </div>
+      </div>
+    </div>
+{% endcomment %}
+      <link rel='stylesheet'  href='{% static 'css/yule/yule.css' %}' type='text/css' media='all' property='stylesheet'/>
+<div class="content-wrap feed-wrapper">
+  <div class="content">
+      {% for list in data %}
+         {% if list.images|length >= 3 %}
+         <div class="feed-common feed-four-pic">
+          <div class="feed-attr-click">
+            <h3 class="feed-four-title feed-h3-style">
+              <a href="" class="feed-visited theme__color__hover">{{list.title}}</a>
+            </h3>
+          </div>
+          <div class="feed-pic feed-pic-wrapper feed-click-pic">
+            　{% for imgusrl in list.images%}
+            <a class="feed-four-location" href="#">
+              <img src="https://{{imgusrl}} " class="feed-pic-style">
+            </a>
+            {% endfor %}
+          </div>
+          <div class="feed-no-info">
+            <div class="feed-insert-tag">
+              <!-- 作者图标-->
+              <a href="#" class="feed-auth">
+                <img src="{{list.authorPic}}" class="feed-info-pic">
+              </a>
+              <span class="feed-info-time">
+                <!-- 作者名称-->
+                {{list.authorName}}
+              </span>
+              <span class="feed-dot">·</span>
+              <!-- 发布时间-->
+              <span class="feed-publish"></span>
+            </div>
+            <div class="feed-nopic-pv"></div>
+          </div>
+         </div>
+          {% endif%}
+         {% if  list.images|length == 1%}
+         <div class="feed-common feed-one-pic">
+         <div class="feed-show-one feed-click-pic">
+          {% for imgusrl in list.images%}
+          <a href="#" target="_blank"><img src="https://{{imgusrl}}" class="feed-pic-style"/></a>
+          {% endfor%}
+         </div>
+        <div class="feed-show-info feed-attr-click">
+           <h3 class="feed-h3-style feed-one-title">
+             <a href="#">{{list.title}}</a>
+           </h3>
+           <div class="feed-one-info">
+             <div class="feed-insert-tag">
+               <a href="#" class="feed-auth">
+                 <img src="{{list.authorPic}}" class="feed-info-pic">
+               </a>
+               <span class="feed-info-time">{{list.authorName}}</span>
+               <span class="feed-dot">·</span>
+               <span class="feed-publish"></span>
+             </div>
+             <div class="feed-nopic-pv"></div>
+           </div>
+        </div>
+      </div>
+         {% endif%}
+      {% endfor %}
+    </div>
+</div>
+{%endblock body%}
