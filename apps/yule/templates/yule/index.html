@@ -71,7 +71,8 @@
          <div class="feed-common feed-four-pic">
           <div class="feed-attr-click">
             <h3 class="feed-four-title feed-h3-style">
-              <a href="" class="feed-visited theme__color__hover">{{list.title}}</a>
+              <a href="{% url 'yule:detail_picture' list.url %}" class="feed-visited theme__color__hover">{{list.title}} </a>
+             
             </h3>
           </div>
           <div class="feed-pic feed-pic-wrapper feed-click-pic">
@@ -108,7 +109,8 @@
          </div>
         <div class="feed-show-info feed-attr-click">
            <h3 class="feed-h3-style feed-one-title">
-             <a href="#">{{list.title}}</a>
+             <!-- <a href="/yule/details/https:{{list.url}}">{{list.title}}</a> -->
+             <a href="{% url 'yule:details' list.url %}">{{list.title}}</a>
            </h3>
            <div class="feed-one-info">
              <div class="feed-insert-tag">
