@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .sinanew import getSohuYule,getSohuYuleDetail
+from .sinanew import getSohuYule,getSohuYuleDetailPicture,getSohuYuleDetail
 
 # Create your views here.
 def index(request):
@@ -10,6 +10,16 @@ def index(request):
     data = getSohuYule(url)
     return render(request, 'yule/index.html', data)
 
-def detail(request):
-    s =getSohuYuleDetail('https://www.sohu.com/a/412833871_120161664?scm=1002.280027.0.0-0')
+def detail(request,openurl='sss'):
+    # print(openurl)
+    url ='https:'+openurl
+    s =getSohuYuleDetail(url)
     return render(request, 'yule/detail.html', {'data':s})
+
+def detailPicture(request, openurl=''):
+    url ='https:'+openurl
+    data =getSohuYuleDetailPicture(url)
+    return render(request, 'yule/detailp.html', {'data':data})
+
+def page_not_found(request):
+    return render(request,'404.html','')

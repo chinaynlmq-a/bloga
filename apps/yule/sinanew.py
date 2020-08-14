@@ -21,6 +21,10 @@ import re
 import json
 # import pandas
 
+headers = {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+}
+
 def getSohuYule(url):
     headers = {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
@@ -42,10 +46,38 @@ def getSohuYuleDetail(durl):
      res = requests.get(durl)
      res.encoding = 'utf-8'
      soup = BeautifulSoup(res.text,'html.parser')
-     title=soup.select('.title-info-title')[0].text.strip()
-     article=soup.select('#mp-editor')[0]
+     # print(title)
+     if len(soup.select('.title-info-title')) == 0:
+        title=soup.select('.text-title h1')[0].text
+     else:
+        title=soup.select('.title-info-title')[0].text.strip()
+     article=soup.select('#mp-editor')
      detaills={"title":title,"article":article}
      return detaills   
+
+def getSohuYuleDetailPicture (durl):
+     print(durl)
+     res = requests.get(durl,headers=headers)
+     res.encoding = 'utf-8'
+     soup = BeautifulSoup(res.text,'html.parser')
+     # print(title)
+     if len(soup.select('#article-title-hash')) == 0:
+        title='图片集合'
+     else:
+        title=soup.select('#article-title-hash')[0].text.strip()
+     imgUrlList=soup.select('.scroll img')
+     imgUrlTitle=soup.select('.pic-explain .txt p')
+     #print(imgUrlTitle)
+     #print(imgUrlList)
+     imgDict={}
+     imglen =0
+     while imglen<len(imgUrlList):
+         dit={imglen:{'title':str(imgUrlTitle[imglen]),'url':str(imgUrlList[imglen])}}
+         imgDict.update(dit)
+         imglen+=1
+     # DetailPicture={"title":title,"imgUrlTitle":imgUrlTitle,"imgUrlList":imgUrlList}
+     DetailPicture={"title":title,"imgs":imgDict}
+     return DetailPicture 
 
 def getNewsdetial(newsurl):
     res = requests.get(newsurl)
@@ -136,28 +168,7 @@ def getNewsDetial():
 #df.to_excel('news2.xlsx')
 
 
-# if __name__ == "__main__":
-  # s=getSohuYuleDetail('https://www.sohu.com/a/412833871_120161664?scm=1002.280027.0.0-0')
-  #print(s)
-  #getSohuYule()
-  #df = pandas.DataFrame(getNewsDetial())
-  #df.to_excel('sinanews.xlsx')
-   #arr = getNewsLinkUrl()
-   #for i in arr:
-     #print(i)
-  #title_all = []
-  # author_all = []
-  # commentCount_all = []
-  # article_all = []
-  # time_all = []   
-  # url ='https://news.sina.com.cn/o/2020-05-09/doc-iircuyvi2159940.shtml'   
-  # title_all.append(getNewsdetial(url)[0])
-  # time_all.append(getNewsdetial(url)[1])
-  # article_all.append(getNewsdetial(url)[2])
-  # author_all.append(getNewsdetial(url)[3])
-  # print(title_all)
-  # print(time_all)
-  # print(article_all)
-  # print(author_all)
-  # getCommentCount('https://news.sina.com.cn/o/2020-05-09/doc-iircuyvi2159940.shtml')
+#if __name__ == "__main__":
+    #getSohuYuleDetailPicture('https://www.sohu.com/picture/412779106?scm=1002.280027.0.0-0&spm=smpc.ch19.fd.19.1597281808871Sj40oJy')
+  
  
