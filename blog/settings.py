@@ -97,7 +97,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'baisiwanglmq',
         'NAME': 'blog',
         # 避免映射数据库时出现警告
         'OPTIONS': {
