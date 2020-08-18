@@ -10,7 +10,7 @@ Pandas是字典形式，基于NumPy创建，让NumPy为中心的应用变得更�
 '''
 #!/usr/bin/env python3
 # # -*- coding: utf-8 -*-
-'sinanew test module'
+'sinanew souhu sina module'
 
 __author__  ='LMQ'
 # 获取新闻的标题，内容，时间和评论数
