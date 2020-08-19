@@ -8,7 +8,10 @@ from .wy_biz import getWyBizList
 def wylist(request,page=1):
     data = getWyBizList(page)
     return render(request, 'yule/wy_biz.html', {'data':data})
-
+# 网易商业详细页面
+def wybizdetail(request,url):
+    return render(request, 'yule/wy_biz_detail.html', {'data':data})
+    
 def index(request):
     # return HttpResponse(getNewsLinkUrl())
     url = 'https://v2.sohu.com/integration-api/mix/region/131?size=25&adapter=pc&secureScore=50&page={}&callback=jQuery1111'

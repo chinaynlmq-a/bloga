@@ -6,12 +6,12 @@
   <div class="content">
       {% for list in data %}
       <div class="data_row news_article clearfix news_first">   
-        <a href="{{list.docurl}}" class="na_pic">
+        <a href="{{list.docurl}}" class="na_pic j_opentURL">
             <img src="{{list.imgurl}}" alt="{{list.title}}" width="140" height="88">
         </a>
         <div class="na_detail clearfix ">
             <div class="news_title">
-                <h3><a href="{{list.docurl}}">{{list.title}}</a></h3>
+                <h3><a href="{{list.docurl}}" class="j_opentURL">{{list.title}}</a></h3>
             </div>
             <div class="news_tag">
                   <a href="" class="link">{{list.label}}</a>
@@ -27,4 +27,5 @@
       {% endfor %}
     </div>
 </div>
+<script type='text/javascript' src='{% static 'js/yule/fun.js' %}'></script>
 {%endblock body%}
