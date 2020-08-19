@@ -2,8 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .sinanew import getSohuYule,getSohuYuleDetailPicture,getSohuYuleDetail
-
+from .wy_biz import getWyBizList
 # Create your views here.
+# 网易商业
+def wylist(request,page=1):
+    data = getWyBizList(page)
+    return render(request, 'yule/wy_biz.html', {'data':data})
+
 def index(request):
     # return HttpResponse(getNewsLinkUrl())
     url = 'https://v2.sohu.com/integration-api/mix/region/131?size=25&adapter=pc&secureScore=50&page={}&callback=jQuery1111'

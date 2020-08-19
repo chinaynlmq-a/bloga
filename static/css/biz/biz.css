@@ -1,0 +1,33 @@
+.data_row {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+}
+.news_article .na_pic {
+  float: left;
+  _display: inline;
+}
+.news_article .na_detail {
+  width: 445px;
+  margin-left: 15px;
+  float: left;
+  _display: inline;
+}
+.news_tag {
+  float: left;
+  _display: inline;
+}
+.news_tag .keywords {
+  float: left;
+  _display: inline;
+  padding-right: 15px;
+}
+.news_title h3 a {
+    color: #404040;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.news_title h3 a:hover {
+    color: #ff3333;
+}
