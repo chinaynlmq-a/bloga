@@ -7222,6 +7222,11 @@ a.badge-inverse:hover .label-arrow,a.label-inverse:hover .label-arrow {
   background-color: #bce0dd
 }
 
+/* 2020-8-19*/
+.textwidget{
+  height: 200px;
+}
+/* end 2020-8-19*/
 #wowslider-container1 .ws_images ul {
   animation: wsBasic 16s infinite;
   -moz-animation: wsBasic 16s infinite;
