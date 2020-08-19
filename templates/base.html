@@ -85,7 +85,7 @@
     </script>
     <!--[if lt IE 9]><script src="{% static 'js/html5.js' %}"></script><![endif]-->
 
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/main.js' %}"></script> -->
     {% if user.is_authenticated %}
     <!-- <script>
         var msgs = {% get_unread_count user %};
@@ -122,11 +122,11 @@
                     <!--获取一级分类信息-->
                     {% get_bigcategory_list as bigcategory %}
                     <li id="menu-item-44"
-                        class="menu-item menu-item-type-custom menu-item-object-custom {% if not category %}current-menu-item current_page_item{% endif %} menu-item-home menu-item-44">
+                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-44">
                         <a href="/">首页</a>
                     </li>
                     <li id="menu-item-44"
-                    class="menu-item menu-item-type-custom menu-item-object-custom {% if not category %}current-menu-item current_page_item{% endif %} menu-item-home menu-item-44">
+                    class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-home menu-item-44">
                     <a href="/yule" target="_blank">娱乐</a>
                     </li>
                     <!--导航条一级分类渲染-->
@@ -246,8 +246,8 @@
 <link rel='stylesheet' id='metaslider-nivo-slider-css' href='{% static 'css/nivo-slider.css' %}' type='text/css' media='all' property='stylesheet'/>
 <link rel='stylesheet' id='metaslider-public-css' href='{% static 'css/public.css' %}' type='text/css' media='all' property='stylesheet'/>
 <link rel='stylesheet' id='metaslider-nivo-slider-bar-css' href='{% static 'css/bar.css' %}' type='text/css' media='all' property='stylesheet'/>
-<script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
-<script type='text/javascript' src='{% static 'js/wp-embed.min.js' %}'></script>
+<!-- <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>-->
+<script type='text/javascript' src='{% static 'js/wp-embed.min.js' %}'></script> 
 <script type='text/javascript' src='{% static 'js/jquery.nivo.slider.pack.js' %}'></script>
 
 </body>

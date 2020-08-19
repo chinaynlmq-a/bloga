@@ -1,0 +1,20 @@
+.right-adv{
+  min-height: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+.index-content-top{
+  overflow: hidden;
+  position: relative;
+}
+.index-con-right{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 330px;
+}
+.index-con-right .item{
+  height: 120px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}

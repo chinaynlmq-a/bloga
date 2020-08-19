@@ -1,4 +1,4 @@
-﻿{%extends 'base_right.html'%}
+﻿{%extends 'index_right.html'%}
 {% load blog_tags static comment_tags%}
 
 {% block title %}汇网思头条，娱乐八卦，小说{% endblock title %}
@@ -11,13 +11,13 @@
 {% block body%}
     <div class="content-wrap">
         <div class="content">
+            <div class="index-content-top">
+            <!-- 轮播广告-->
             <div id="wowslider-container1">
                 <div class="ws_images">
-
                     <ul>
                         {% get_carousel_index as carousels %}
                         {% for carousel in carousels %}
-
                         <li>
                             <a target="_blank" href="{{ carousel.url }}" title="{{ carousel.content }}">
                                 <img src="{{ carousel.img_url }}" title="{{ carousel.title }}" alt="{{ carousel.title }}"/>
@@ -27,7 +27,7 @@
                     </ul>
                 </div>
 
-                <div class="ws_thumbs">
+                <div class="ws_thumbs" style="display: none;">
                     <div>
                         {% get_carousel_index as carousels%}
                         {% for carousel in carousels %}
@@ -37,11 +37,19 @@
                 </div>
                 <div class="ws_shadow"></div>
             </div>
+            <!-- end轮播广告-->
+            <!-- 录播右侧-->
+            <div class="index-con-right">
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+           </div>
+            <!-- end录播右侧-->
             <script type="text/javascript" src="/static/js/slider.js"></script>
             <div>
                 <div class="left-ad" style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div>
                 <div class="hot-posts">
-                    <h2 class="title">热门排行</h2>
+                    <h2 class="title">热门推荐</h2>
                     <ul>
                         {% get_article_list 'loves' 5 as hot_article %}
                             {% for hot in hot_article %}
@@ -121,3 +129,4 @@
     </div>
 
 {%endblock body%}
+
