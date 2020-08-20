@@ -21,15 +21,17 @@ def index(request):
     data = getSohuYule(url)
     return render(request, 'yule/index.html', data)
 
-def detail(request,openurl='sss'):
-    # print(openurl)
-    url ='https:'+openurl
-    s =getSohuYuleDetail(url)
+def detail(request):
+    if request.method=='GET':
+        url =request.GET.get('getUrl',default='110')
+    #url ='https:'+openurl
+    s =getSohuYuleDetail(parse.unquote(url))
     return render(request, 'yule/detail.html', {'data':s})
 
-def detailPicture(request, openurl=''):
-    url ='https:'+openurl
-    data =getSohuYuleDetailPicture(url)
+def detailPicture(request):
+    if request.method=='GET':
+        url =request.GET.get('getUrl',default='110')
+    data =getSohuYuleDetailPicture(parse.unquote(url))
     return render(request, 'yule/detailp.html', {'data':data})
 
 def page_not_found(request):
