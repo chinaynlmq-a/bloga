@@ -16,6 +16,7 @@ from markdown.extensions.toc import TocExtension  # 锚点的拓展
 from haystack.generic_views import SearchView  # 导入搜索视图
 from haystack.query import SearchQuerySet
 from yule.souhu_model import GetSouhu
+from yule.wy_biz import getWyBizList
 
 
 # Create your views here.
@@ -104,6 +105,7 @@ class IndexView(generic.ListView):
         context['category'] = self.big_slug
         #
         context['yulelist'] = GetSouhu().get_list(category='131',size=5)
+        context['bizlist']=getWyBizList(1)[:5]
         return context
 
     def pagination_data(self, paginator, page, is_paginated):

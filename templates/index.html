@@ -52,6 +52,7 @@
                     <h2 class="title">娱乐要闻</h2>
                     <div class="j_yule">
                         {% for list in yulelist.data%}
+                        {% if list.images.0%}
                     <div class="item">
                         <a href="#" title="">
                             <img src="https://{{list.images.0}}" alt="" class="img">
@@ -62,13 +63,28 @@
                             </a>
                         </h4>
                     </div>
+                    {%endif%}
                     {%endfor%}
                     <!-- end item-->
                     </div>
                 </div>
                 <div class="hot-posts">
                     <h2 class="title">最新商业</h2>
-                    <div class="j_biz"></div>
+                    <div class="j_biz">
+                        {% for list in bizlist%}
+                    <div class="item">
+                        <a href="#" title="">
+                            <img src="{{list.imgurl}}" alt="" class="img">
+                        </a>
+                        <h4>
+                            <a href="#" title="">
+                                {{list.title}}
+                            </a>
+                        </h4>
+                    </div>
+                    {%endfor%}
+                    <!-- end item-->
+                    </div>
                 </div>
             </div>
             <!-- 热门推荐-->

@@ -23,7 +23,7 @@
   margin-bottom: 10px;
 }
 .bws-index-mind .hot-posts{
-  flex: 1 0 auto;
+  flex: 0 1 auto;
 }
 .bws-index-mind .item{
   font-size: 0;
@@ -43,6 +43,9 @@
 }
 .bws-index-mind .item h4{
   padding-left: 10px;
+  white-space: nowrap;
+  overflow:hidden;
+  width:70%
 }
 .bws-index-mind .item .img{
   width: 60px;
