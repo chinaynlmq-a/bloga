@@ -1,6 +1,6 @@
 from django.urls import path,re_path
 
-from .views import index,detail,detailPicture,wylist,wybizdetail,wyBabyList,wyBabydetail
+from .views import index,detail,detailPicture,wylist,wybizdetail,wyBabyList,wyBabydetail,shHistoryLsit
 
 urlpatterns = [
     path('', index, name='index'),
@@ -11,7 +11,10 @@ urlpatterns = [
     path('biz/<int:page>', wylist, name='wylist'),
     path('bizdetail/<path:url>', wybizdetail, name='wybizdetail'),
     path('baby/<int:page>', wyBabyList, name='wyBabyList'),
-    path('babydetail/<path:url>', wyBabydetail, name='wyBabydetail')
+    path('babydetail/<path:url>', wyBabydetail, name='wyBabydetail'),
+    #历史
+    path('history', shHistoryLsit, name='shHistoryLsit')
+    
     
     #path('pictures/', detailPicture, name='detail_picture')
     #re_path(r'^details/(?P<openurl>{*.})/$',detail, name='details')

@@ -66,7 +66,7 @@ class IndexView(generic.ListView):
             queryset = queryset.filter(tags=tags)
 
         return queryset
-
+    #context_object_name 给模版添加而外的参数
     def get_context_data(self, **kwargs):
         """
         在视图函数中将模板变量传递给模板是通过给 render 函数的 context 参数传递一个字典实现的，
