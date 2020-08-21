@@ -1,0 +1,19 @@
+{%extends 'base_right.html'%}
+{% load static %}
+{% block body%}
+<div class="content-wrap">
+  <div class="content">
+      <header class="article-header">
+          <h1 class="article-title"><a href="#">{{data.title}}</a></h1>
+      </header>
+      <article class="article-content">
+       {{data.article|safe}}
+       {%comment%}
+       {%for art in data.article%}
+        {{art}}
+       {%endfor%}
+       {%endcomment%}
+      </article>
+  </div>
+</div>
+{%endblock body%}

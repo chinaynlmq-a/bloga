@@ -4,6 +4,7 @@ from urllib import parse
 
 from .sinanew import getSohuYule,getSohuYuleDetailPicture,getSohuYuleDetail
 from .wy_biz import getWyBizList,getWyBizListDetail
+from .wy_baby import *
 # Create your views here.
 # 网易商业
 def wylist(request,page=1):
@@ -14,6 +15,16 @@ def wybizdetail(request,url):
     #url = parse.unquote(url)
     data = getWyBizListDetail(parse.unquote(url))
     return render(request, 'yule/wy_biz_detail.html', {'data':data})
+
+# 网易亲子
+def wyBabyList(request,page=1):
+    data = getWyBabyList(page)
+    return render(request, 'yule/wy_baby.html', {'data':data})
+# 网易商业详细页面
+def wyBabydetail(request,url):
+    #url = parse.unquote(url)
+    data = getWyBabyListDetail(parse.unquote(url))
+    return render(request, 'yule/wy_baby_detail.html', {'data':data})
 
 def index(request):
     # return HttpResponse(getNewsLinkUrl())
