@@ -18,11 +18,11 @@ class GetSouhu:
 
     # 6282 历史
     # 131 娱乐 
-    def get_list(self,category='6282',page=1,callback='jQuery11240'):
-        WySource='https://v2.sohu.com/integration-api/mix/region/{}?size=25&adapter=pc&secureScore=50&page={}&pvId=1597977513986eN9F3Iu&requestId=191031134648Z27H_1597977563584&callback={}'
+    def get_list(self,category='6282',size=25,page=1,callback='jQuery11240'):
+        WySource='https://v2.sohu.com/integration-api/mix/region/{}?size={}&adapter=pc&secureScore=50&page={}&pvId=1597977513986eN9F3Iu&requestId=191031134648Z27H_1597977563584&callback={}'
 
         # 动态获取url链接地址
-        WySource=WySource.format(category,page,callback)
+        WySource=WySource.format(category,size,page,callback)
         res = requests.get(WySource,headers=self._headers)
         shList= res.text.strip()
         shList=shList.lstrip('/**/')
@@ -47,7 +47,8 @@ class GetSouhu:
         title=soup.select('.title-info-title')[0].text.strip()
      article=soup.select('#mp-editor')
      detaills={"title":title,"article":article}
-     return detaills     
+     return detaills
+    
 
 if __name__ == "__main__":
   print(GetSouhu().get_detail('https://www.sohu.com/a/414162242_100103848?spm=smpc.tag-page.fd-news.3.1597986862445ROid4Pf'))

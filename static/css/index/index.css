@@ -18,3 +18,33 @@
   background-color: #fff;
   margin-bottom: 10px;
 }
+.bws-index-mind{
+  display:flex;
+  margin-bottom: 10px;
+}
+.bws-index-mind .hot-posts{
+  flex: 1 0 auto;
+}
+.bws-index-mind .item{
+  font-size: 0;
+  letter-spacing: 0;
+  padding:0 0 10px 0;
+  margin-left: 22px;
+  border-bottom: 1px solid #ccc;
+}
+.bws-index-mind .item:last-child{
+  border: 0;
+}
+.bws-index-mind .item a,
+.bws-index-mind .item h4{
+  display:inline-block;
+  font-size:14px;
+  color: #333;
+}
+.bws-index-mind .item h4{
+  padding-left: 10px;
+}
+.bws-index-mind .item .img{
+  width: 60px;
+  height: 60px;
+}

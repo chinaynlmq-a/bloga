@@ -15,6 +15,7 @@ from .models import Article, BigCategory, Category, Tag
 from markdown.extensions.toc import TocExtension  # 锚点的拓展
 from haystack.generic_views import SearchView  # 导入搜索视图
 from haystack.query import SearchQuerySet
+from yule.souhu_model import GetSouhu
 
 
 # Create your views here.
@@ -30,7 +31,7 @@ class IndexView(generic.ListView):
     context_object_name = 'articles'
 
     paginate_by = 10
-
+    #queryset 自定义显示的数据
     def get_queryset(self):
         # 重写通用视图的 get_queryset 函数，获取定制数据
         queryset = super(IndexView, self).get_queryset()
@@ -101,6 +102,8 @@ class IndexView(generic.ListView):
         # 注意此时 context 字典中已有了显示分页导航条所需的数据。
 
         context['category'] = self.big_slug
+        #
+        context['yulelist'] = GetSouhu().get_list(category='131',size=5)
         return context
 
     def pagination_data(self, paginator, page, is_paginated):

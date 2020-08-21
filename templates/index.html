@@ -46,6 +46,32 @@
            </div>
             <!-- end录播右侧-->
             <script type="text/javascript" src="/static/js/slider.js"></script>
+            <!--娱乐 和 商业 推荐展示-->
+            <div class="bws-index-mind">
+                <div class="hot-posts">
+                    <h2 class="title">娱乐要闻</h2>
+                    <div class="j_yule">
+                        {% for list in yulelist.data%}
+                    <div class="item">
+                        <a href="#" title="">
+                            <img src="https://{{list.images.0}}" alt="" class="img">
+                        </a>
+                        <h4>
+                            <a href="#" title="">
+                                {{list.title}} 
+                            </a>
+                        </h4>
+                    </div>
+                    {%endfor%}
+                    <!-- end item-->
+                    </div>
+                </div>
+                <div class="hot-posts">
+                    <h2 class="title">最新商业</h2>
+                    <div class="j_biz"></div>
+                </div>
+            </div>
+            <!-- 热门推荐-->
             <div>
                 <div class="left-ad" style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div>
                 <div class="hot-posts">
