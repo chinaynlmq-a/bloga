@@ -1,6 +1,6 @@
 // $(function(){
   $('.j_opentURL').on('click',function(){
-    window.location.href = '/yule/bizdetail/'+encodeURIComponent($(this).attr('data-link'));
+    window.location.href = '/yule/bizdetail?getUrl='+encodeURIComponent($(this).attr('data-link'));
     return false;
   })
 // });

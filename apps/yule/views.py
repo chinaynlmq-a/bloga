@@ -13,7 +13,9 @@ def wylist(request,page=1):
     data = getWyBizList(page)
     return render(request, 'yule/wy_biz.html', {'data':data})
 # 网易商业详细页面
-def wybizdetail(request,url):
+def wybizdetail(request):
+    if request.method=='GET':
+        url =request.GET.get('getUrl',default='110')
     #url = parse.unquote(url)
     data = getWyBizListDetail(parse.unquote(url))
     return render(request, 'yule/wy_biz_detail.html', {'data':data})
@@ -22,9 +24,12 @@ def wybizdetail(request,url):
 def wyBabyList(request,page=1):
     data = getWyBabyList(page)
     return render(request, 'yule/wy_baby.html', {'data':data})
-# 网易商业详细页面
-def wyBabydetail(request,url):
+# 网易亲子详细页面
+def wyBabydetail(request):
     #url = parse.unquote(url)
+    if request.method=='GET':
+        url =request.GET.get('getUrl',default='110')
+        
     data = getWyBabyListDetail(parse.unquote(url))
     return render(request, 'yule/wy_baby_detail.html', {'data':data})
 # 搜狐娱乐

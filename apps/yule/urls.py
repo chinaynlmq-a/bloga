@@ -9,9 +9,11 @@ urlpatterns = [
     #path('pictures/https:<path:openurl>', detailPicture, name='detail_picture'),
     path('pictures', detailPicture, name='detail_picture'),
     path('biz/<int:page>', wylist, name='wylist'),
-    path('bizdetail/<path:url>', wybizdetail, name='wybizdetail'),
+    path('bizdetail', wybizdetail, name='wybizdetail'),
     path('baby/<int:page>', wyBabyList, name='wyBabyList'),
-    path('babydetail/<path:url>', wyBabydetail, name='wyBabydetail'),
+    #path('babydetail/<path:url>', wyBabydetail, name='wyBabydetail'),
+    #亲子详细
+    path('babydetail', wyBabydetail, name='wyBabydetail'),
     #历史
     path('history', shHistoryLsit, name='shHistoryLsit')
     
