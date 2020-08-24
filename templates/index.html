@@ -54,11 +54,11 @@
                         {% for list in yulelist.data%}
                         {% if list.images.0%}
                     <div class="item">
-                        <a href="#" title="">
+                        <a href="#" title="" class="j_clicka" len='{{list.images|length}}' data-link="{{list.url}}">
                             <img src="https://{{list.images.0}}" alt="" class="img">
                         </a>
                         <h4>
-                            <a href="#" title="">
+                            <a href="#" title="" class="j_clicka" len='{{list.images|length}}' data-link="{{list.url}}">
                                 {{list.title}} 
                             </a>
                         </h4>
@@ -73,11 +73,11 @@
                     <div class="j_biz">
                         {% for list in bizlist%}
                     <div class="item">
-                        <a href="#" title="">
+                        <a href="#" title="" data-link="{{list.docurl}}" class="j_opentURL">
                             <img src="{{list.imgurl}}" alt="" class="img">
                         </a>
                         <h4>
-                            <a href="#" title="">
+                            <a href="#" title="" class="j_opentURL" data-link="{{list.docurl}}">
                                 {{list.title}}
                             </a>
                         </h4>
@@ -169,6 +169,6 @@
 
         </div>
     </div>
-
+<script src="static/js/index/in.js"></script>
 {%endblock body%}
 
