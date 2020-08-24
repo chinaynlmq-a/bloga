@@ -28,7 +28,7 @@
 .bws-index-mind .item{
   font-size: 0;
   letter-spacing: 0;
-  padding:0 0 10px 0;
+  padding:6px 0;
   margin-left: 22px;
   border-bottom: 1px solid #ccc;
 }
@@ -43,11 +43,11 @@
 }
 .bws-index-mind .item h4{
   padding-left: 10px;
-  white-space: nowrap;
-  overflow:hidden;
-  width:70%
+  width:70%;
+  line-height: 1.4em;
+  vertical-align: middle;
 }
 .bws-index-mind .item .img{
   width: 60px;
-  height: 60px;
+  height: 40px;
 }
