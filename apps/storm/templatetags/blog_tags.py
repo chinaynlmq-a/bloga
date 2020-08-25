@@ -1,9 +1,9 @@
 # ---------------------------
-__author__ = 'stormsha'
-__date__ = '2019/3/15 20:31'
+__author__ = 'lmq'
+__date__ = '2020-08-24'
 # ---------------------------
 
-# 创建了新的tags标签文件后必须重启服务器
+# 创建了新的tags标签文件后必须重启服务器,可以直接在模版中使用
 
 from django import template
 from ..models import Article, Category, Tag, Carousel, FriendLink, BigCategory, Activate, Keyword

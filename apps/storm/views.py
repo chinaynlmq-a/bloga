@@ -1,6 +1,6 @@
 # ---------------------------
-__author__ = 'stormsha'
-__date__ = '2019/3/15 20:31'
+__author__ = 'lmq'
+__date__ = '2020'
 # ---------------------------
 import markdown
 import time
@@ -66,7 +66,7 @@ class IndexView(generic.ListView):
             self.big_slug = BigCategory.objects.filter(category__article__tags=tags)
             self.big_slug = self.big_slug[0].slug
             queryset = queryset.filter(tags=tags)
-
+        #print(queryset) 
         return queryset
     #context_object_name 给模版添加而外的参数
     def get_context_data(self, **kwargs):
@@ -106,6 +106,7 @@ class IndexView(generic.ListView):
         #
         context['yulelist'] = GetSouhu().get_list(category='131',size=5)
         context['bizlist']=getWyBizList(1)[:5]
+        #print(context)
         return context
 
     def pagination_data(self, paginator, page, is_paginated):
