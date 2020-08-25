@@ -41,7 +41,7 @@ sitemaps = {
 urlpatterns = [
     # 添加娱乐 转发路径用圆点分割
     url(r'^yule/', include(('yule.urls','yule'), namespace='yule')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^chinaynlmq/', admin.site.urls),
     # 用户
     #url(r'^accounts/', include('user.urls', namespace='accounts')),
     url(r'^accounts/', include(('user.urls','accounts'), namespace='accounts')),
