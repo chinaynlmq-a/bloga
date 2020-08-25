@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Tag, Category, Carousel, Keyword, FriendLink, BigCategory
+from .models import Article, Tag, Category, Carousel, Keyword, FriendLink, BigCategory,Activate
 
 #装饰器 使用装饰函数在admin管理后台中注册
 @admin.register(Article)
@@ -90,3 +90,7 @@ class FriendLinkAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'link', 'create_date', 'is_active', 'is_show')
     date_hierarchy = 'create_date'
     list_filter = ('is_active', 'is_show')
+
+@admin.register(Activate)
+class ActivateAdmin(admin.ModelAdmin):
+    list_display = ('text', 'is_active')
