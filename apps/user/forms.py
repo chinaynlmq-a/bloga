@@ -1,5 +1,6 @@
 from django import forms
 from .models import Ouser
+from storm.models import Article
 
 
 class UserForm(forms.Form):
@@ -18,3 +19,10 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Ouser
         fields = ['link', 'avatar']
+
+
+# 添加文章
+class AddArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ('title','summary','body')

@@ -133,7 +133,7 @@ def AddcommentView(request):
 
     return HttpResponse('参数错误', content_type='text/html;charset="utf-8"')
 
-
+#里面有一个@login_required标签。其作用就是告诉程序，使用这个方法是要求用户登录的
 @login_required
 def note_view(request):
     if request.method == "GET":

@@ -6,9 +6,11 @@ from django.contrib import messages
 # 第四个是 auth中用户权限有关的类。auth可以设置每个用户的权限。
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from .forms import UserForm, loginForm, ProfileForm
+from .forms import UserForm, loginForm, ProfileForm, AddArticleForm
+from storm.models import Category,Tag,Keyword,Article
 import re
 from comment.models import CommentUser
+from .webtools import auto_article_url
 
 
 # 注册
@@ -159,9 +161,52 @@ def change_profile_view(request):
         form = ProfileForm(instance=request.user)
     return render(request, 'oauth/change_profile.html', context={'form': form})
 
-
+# 里面有一个@login_required标签。其作用就是告诉程序，使用这个方法是要求用户登录的。
+@login_required
+@csrf_exempt  #@csrf_exempt 注解来标识一个视图可以被跨域访问
 def publish_view(request):
     return render(request, 'oauth/publish.html')
 
+# 添加文章
+@login_required
+@csrf_exempt
+def add_article(request):
+    if request.method == 'POST':
+        article_form = AddArticleForm(request.POST)
+        # 当调用 article_form.is_valid() 方法时，Django 自动帮我们检查表单的数据是否符合格式要求。
+        if article_form.is_valid():
+            #'slug','tags',
+            #print('====')
+            #print(request.POST)
+            # commit=False 的作用是仅仅利用表单的数据生成 Comment 模型类的实例，但还不保存评论数据到数据库。
+            article_detail = article_form.save(commit=False)
+            article_detail.slug= auto_article_url()
+            #print(Category.objects.all())
+            # 外键需要实例话
+            category_id = Category.objects.get(name='前端')
+            #print()
+            article_detail.category =category_id
+            # article_detail.summary ='测试'
+            user_id = request.user.id
+            #print(user_id)
+            article_detail.author = Ouser.objects.get(id=user_id)
+            #print(Tag.objects.all())
+            #tags_id = Tag.objects.get(name='简趣')
+            #tags_id = Article.objects.filter(pk=1).first()
+            #print(tags_id)
+            # 多对多需要用add
+            #objects.create
+            #tag ='其他文章'
+            #article_detail.tags.add(tag)
+            #print(Keyword.objects.all())
+            # article_detail.keywords='2'
+            #article_detail.keywords.add()
+            
+            #print(article_detail)
+            article_detail.save()
+            return render(request, 'oauth/publish.html')
+        else:
+             return render(request, 'oauth/publish.html')       
 
+    return render(request, 'oauth/publish.html')    
 
