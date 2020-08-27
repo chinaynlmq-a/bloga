@@ -68,9 +68,9 @@
 }
 .feed-wrapper .feed-common .feed-info-time {
   display: inline-block;
-  vertical-align: super;
+  /* vertical-align: super; */
   position: relative;
-  top: 1px;
+  /* top: 1px; */
 }
 .feed-wrapper .feed-common .feed-info-time .feed-info-a {
   font-size: 12px;
@@ -138,8 +138,9 @@
   margin-right: 30px;
 }
 .feed-wrapper .feed-one-pic {
-  padding: 10px 0;
+  padding: 10px 5px;
   overflow: hidden;
+  background-color: #fff;
 }
 .feed-wrapper .feed-one-pic .feed-h3-style {
   margin: 0;
@@ -165,7 +166,7 @@
 .feed-wrapper .feed-one-pic .feed-show-info {
   margin-left: 165px;
   height: 100px;
-  margin-top: -4px;
+  /* margin-top: -4px; */
   position: relative;
   overflow: hidden;
 }
@@ -183,10 +184,12 @@
 }
 .feed-wrapper .feed-four-pic {
   padding-top: 22px;
+  background-color: #fff;
 }
 .feed-wrapper .feed-four-pic .feed-h3-style {
   margin: 0;
   height: 25px;
+  padding-left: 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
   -o-text-overflow: ellipsis;

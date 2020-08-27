@@ -92,10 +92,11 @@ class Category(models.Model):
 class Article(models.Model):
     IMG_LINK = '/static/images/summary.jpg'
     author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='作者',on_delete=models.CASCADE)
+    # verbose_name 别名显示
     title = models.CharField(max_length=150, verbose_name='文章标题')
     summary = models.TextField('文章摘要', max_length=230, default='文章摘要等同于网页description内容，请务必填写...')
     #body = models.TextField(verbose_name='文章内容')
-    body = MDTextField()
+    body = MDTextField(verbose_name='文章内容')
     img_link = models.CharField('图片地址', default=IMG_LINK, max_length=255)
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     update_date = models.DateTimeField(verbose_name='修改时间', auto_now=True)
