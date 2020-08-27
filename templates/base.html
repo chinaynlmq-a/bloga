@@ -81,9 +81,9 @@
     <meta name="keywords" content="百网思新闻，百网思头条，娱乐八卦，小说，段子，美食，税务">
     <meta name="description" content="百网思新闻，百网思头条，娱乐八卦，">
     <script type="text/javascript">
-        jQuery(document).ready(function () {
-            jQuery('.video').fitVids();
-        });
+        // jQuery(document).ready(function () {
+        //     jQuery('.video').fitVids();
+        // });
     </script>
     <!--[if lt IE 9]><script src="{% static 'js/html5.js' %}"></script><![endif]-->
 
@@ -219,7 +219,7 @@
                     </a>
 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i>
-                    <a href="{% url 'accounts:publish' %}" target="_blank">写文章</a></a></a>
+                    <a href="{% url 'accounts:add_article' %}" target="_blank">写文章</a></a></a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     <a href="{% url 'accounts:profile' %}?next={{ request.path }}">{{ request.session.username }}</a>
 

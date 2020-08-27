@@ -174,6 +174,7 @@ def add_article(request):
     if request.method == 'POST':
         article_form = AddArticleForm(request.POST)
         # 当调用 article_form.is_valid() 方法时，Django 自动帮我们检查表单的数据是否符合格式要求。
+        #print(article_form)
         if article_form.is_valid():
             # commit=False 的作用是仅仅利用表单的数据生成 Comment 模型类的实例，但还不保存评论数据到数据库。
             article_detail = article_form.save(commit=False)
@@ -203,10 +204,11 @@ def add_article(request):
             article_detail.save()
             article_detail.tags.add(tags_id)
             article_detail.keywords.add(keyw)
-            return redirect(request, '/comment/note/')
+            #return redirect(request, '/comment/note/')
         else:
              #return render(request, 'oauth/publish.html') 
               return redirect('/comment/note/')      
-
-    return render(request, 'oauth/publish.html')    
+    else:
+        article_form = AddArticleForm()
+    return render(request, 'oauth/publish.html',{'form':article_form})    
 

@@ -22,18 +22,19 @@
       <input type="text" class="form-control" id="title" name="title">
 
       <label for="title">文章摘要</label>
-      <input type="text" class="form-control"  id="summary" name="summary">
-
+      <textarea type="text" class="form-control"  id="summary" name="summary" >{{form.summary.value}}</textarea>
       <!-- <label for="title">关键词</label></label>
       <input type="text" class="form-control"  id="keywords" name="keywords"> -->
   </div>
   <!-- 文章正文 -->
   <div class="form-group">
       <label for="body">文章正文</label>
-      <!-- 文本区域 -->
-      <textarea type="text" class="form-control" id="body" name="body" rows="12"></textarea>
+      <!-- <textarea type="text" class="form-control" id="body" name="body" rows="12"></textarea> -->
+      {{form.media}}
+      {{form.body}}
   </div>
+  
   <!-- 提交按钮 -->
-  <button type="submit" class="btn btn-primary">完成</button>
+  <button type="submit" class="btn btn-primary">保存文章</button>
 </form>
 {% endblock body %}
