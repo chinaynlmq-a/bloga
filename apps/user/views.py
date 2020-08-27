@@ -175,9 +175,6 @@ def add_article(request):
         article_form = AddArticleForm(request.POST)
         # 当调用 article_form.is_valid() 方法时，Django 自动帮我们检查表单的数据是否符合格式要求。
         if article_form.is_valid():
-            #'slug','tags',
-            #print('====')
-            #print(request.POST)
             # commit=False 的作用是仅仅利用表单的数据生成 Comment 模型类的实例，但还不保存评论数据到数据库。
             article_detail = article_form.save(commit=False)
             article_detail.slug= auto_article_url()
@@ -191,7 +188,7 @@ def add_article(request):
             #print(user_id)
             article_detail.author = Ouser.objects.get(id=user_id)
             #print(Tag.objects.all())
-            #tags_id = Tag.objects.get(name='简趣')
+            tags_id = Tag.objects.get(name='简趣')
             #tags_id = Article.objects.filter(pk=1).first()
             #print(tags_id)
             # 多对多需要用add
@@ -200,13 +197,16 @@ def add_article(request):
             #article_detail.tags.add(tag)
             #print(Keyword.objects.all())
             # article_detail.keywords='2'
-            #article_detail.keywords.add()
-            
-            #print(article_detail)
+            #print(article_detail.tags)
+            # 获取关键词
+            keyw = Keyword.objects.get(pk=1)
             article_detail.save()
-            return render(request, 'oauth/publish.html')
+            article_detail.tags.add(tags_id)
+            article_detail.keywords.add(keyw)
+            return redirect(request, '/comment/note/')
         else:
-             return render(request, 'oauth/publish.html')       
+             #return render(request, 'oauth/publish.html') 
+              return redirect('/comment/note/')      
 
     return render(request, 'oauth/publish.html')    
 
