@@ -36,3 +36,4 @@ urllib3==1.24.2
 Whoosh==2.7.4
 cryptography==3.0
 BeautifulSoup4
+django-mdeditor==0.1.18
