@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Article, Tag, Category, Carousel, Keyword, FriendLink, BigCategory,Activate
 
+
 #装饰器 使用装饰函数在admin管理后台中注册
 @admin.register(Article)
 # 定制后台管理页面

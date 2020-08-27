@@ -42,6 +42,8 @@ urlpatterns = [
     # 添加娱乐 转发路径用圆点分割
     url(r'^yule/', include(('yule.urls','yule'), namespace='yule')),
     url(r'^chinaynlmq/', admin.site.urls),
+    # 编辑器
+    url(r'mdeditor/', include('mdeditor.urls')),
     # 用户
     #url(r'^accounts/', include('user.urls', namespace='accounts')),
     url(r'^accounts/', include(('user.urls','accounts'), namespace='accounts')),
