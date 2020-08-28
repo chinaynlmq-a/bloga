@@ -22,3 +22,8 @@
   width: 100%;
   min-height: 100%;
 }
+
+html.mhtml .adv-temp-index-1{
+  background: url(../../images/adv/adv_in_top_1_h5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}

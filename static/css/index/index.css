@@ -35,7 +35,7 @@
 .bws-index-mind .item:last-child{
   border: 0;
 }
-.bws-index-mind .item a,
+.bws-index-mind .item .img_url,
 .bws-index-mind .item h4{
   display:inline-block;
   font-size:14px;
@@ -47,7 +47,62 @@
   line-height: 1.4em;
   vertical-align: middle;
 }
+.bws-index-mind .item h4 a{
+  color:#212121
+}
 .bws-index-mind .item .img{
   width: 60px;
   height: 40px;
 }
+/*移动端*/
+html.mhtml .index-content-top{
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #fff;
+}
+html.mhtml .index-content-top .index-con-right{
+  position: relative;
+  width: 100%;
+}
+html.mhtml .index-con-right .adv-temp-index-1{
+   height: 1.6rem;
+}
+html.mhtml .index-content-top .adv-temp-index-2{
+  display:none
+}
+html.mhtml .bws-index-mind {
+  flex-direction: column;
+}
+html.mhtml .bws-index-mind .item {
+  display: flex;
+  margin:0 0.29333333333333333rem;
+  flex-direction: row-reverse;
+}
+html.mhtml .bws-index-mind .item .img {
+  width: 3.04rem;
+  height: 1.273333rem;
+  display: block;
+}
+html.mhtml .bws-index-mind .item h4 {
+  font-size: 0.37333333333333335rem;
+  font-weight: normal;
+  width: 100%;
+  padding-right: 0.266667rem;
+  justify-content: space-between;
+}
+html.mhtml .border-botton{
+  border-bottom:0.26666666666666666rem solid #eee;
+  padding-bottom:0.26666666666666666rem;
+}
+html.mhtml .bws-index-mind .item h4 a{
+  font-size: 0.4rem;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+
+
+
+

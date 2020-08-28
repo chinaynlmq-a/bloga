@@ -55,3 +55,16 @@
 .search-expand .searchButoon:hover{
   opacity: .75
 }
+/*移动端*/
+html.mhtml .yusi-logo{
+  padding: 0.26666666666666666rem 0 0.26666666666666666rem 0;
+}
+html.mhtml .yusi-logo .search-expand{
+  display: none;
+}
+html.mhtml .yusi-logo .topa{
+  margin-left: 1.56rem;
+}
+html.mhtml .yusi-logo .yusi-mono {
+  font-size: 0.56rem !important;
+}

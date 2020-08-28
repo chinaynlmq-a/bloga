@@ -1,0 +1,84 @@
+.right-adv{
+  height: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+.index-content-top{
+  overflow: hidden;
+  position: relative;
+}
+.index-con-right{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 330px;
+}
+.index-con-right .item{
+  height: 120px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.bws-index-mind{
+  display:flex;
+  margin-bottom: 10px;
+}
+.bws-index-mind .hot-posts{
+  flex: 0 1 auto;
+}
+.bws-index-mind .item{
+  font-size: 0;
+  letter-spacing: 0;
+  padding:6px 0;
+  margin-left: 22px;
+  border-bottom: 1px solid #ccc;
+}
+.bws-index-mind .item:last-child{
+  border: 0;
+}
+.bws-index-mind .item .img_url,
+.bws-index-mind .item h4{
+  display:inline-block;
+  font-size:14px;
+  color: #333;
+}
+.bws-index-mind .item h4{
+  padding-left: 10px;
+  width:70%;
+  line-height: 1.4em;
+  vertical-align: middle;
+}
+.bws-index-mind .item h4 a{
+  color:#212121
+}
+.bws-index-mind .item .img{
+  width: 60px;
+  height: 40px;
+}
+/*移动端*/
+@px2rem:75*1rem;
+html.mhtml .yusi-logo{
+  padding: 60/@px2rem 0 60/@px2rem 0;
+}
+html.mhtml .bws-index-mind{
+  flex-direction:column;
+}
+html.mhtml .bws-index-mind .item {
+  display: flex;
+  margin-left: 22/@px2rem; 
+  flex-direction:row-reverse;
+  .img {
+    width: 100/@px2rem;
+    height: 80/@px2rem;
+  }
+  .img_url{
+
+  }
+  h4{
+    font-size: 28/@px2rem;
+    font-weight: normal;
+    width:auto;
+    a{
+      font-size: 30/@px2rem;
+    }
+  }
+}

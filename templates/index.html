@@ -52,13 +52,13 @@
             <script type="text/javascript" src="/static/js/slider.js"></script>
             <!--娱乐 和 商业 推荐展示-->
             <div class="bws-index-mind">
-                <div class="hot-posts">
+                <div class="hot-posts border-botton">
                     <h2 class="title">娱乐要闻</h2>
                     <div class="j_yule">
                         {% for list in yulelist.data%}
                         {% if list.images.0%}
                     <div class="item">
-                        <a href="#" title="" class="j_clicka" len='{{list.images|length}}' data-link="{{list.url}}">
+                        <a href="#" title="" class="j_clicka img_url" len='{{list.images|length}}' data-link="{{list.url}}">
                             <img src="https://{{list.images.0}}" alt="" class="img">
                         </a>
                         <h4>
