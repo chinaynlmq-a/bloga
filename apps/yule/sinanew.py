@@ -56,7 +56,7 @@ def getSohuYuleDetail(durl):
      return detaills   
 
 def getSohuYuleDetailPicture (durl):
-     print(durl)
+     #print(durl)
      res = requests.get(durl,headers=headers)
      res.encoding = 'utf-8'
      soup = BeautifulSoup(res.text,'html.parser')
