@@ -31,3 +31,43 @@
 .news_title h3 a:hover {
     color: #ff3333;
 }
+html.mhtml .news_article{
+  display: flex;
+  flex-direction:row-reverse;
+  padding: 0.24rem 0.22rem;
+  justify-content: space-between;
+}
+html.mhtml .news_article .na_detail{
+  -webkit-box-flex: 2;
+    -webkit-flex: 2 2 auto;
+    -ms-flex: 2 2 auto;
+    flex: 2 2 auto;
+    width: 100%;
+    margin: 0;
+}
+html.mhtml .news_article .news_title h3{
+  padding-right: 0.16rem;
+}
+html.mhtml .news_article .news_title a{
+    font-weight: normal;
+    max-height: 1.2rem;
+    overflow: hidden;
+    line-height: 0.6rem;
+    font-size: 0.4533333333333333rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    word-break: break-word;
+}
+html.mhtml .na_pic{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width:3.12rem;
+}
+html.mhtml .na_pic img{
+  width: 100%;
+  height: 1.9466666666666668rem;
+}
