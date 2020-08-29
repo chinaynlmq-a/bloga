@@ -8,10 +8,20 @@
 <div class="content-wrap">
   <div class="content">
       <header class="article-header">
-          <h1 class="article-title"><a href="#">{{data.title}}</a></h1>
+          <h1 class="article-title"><a href="#">
+            {{data.title}}
+          </a></h1>
       </header>
       <article class="article-content">
-       {{data.article|safe}}
+        {% if data.articlelist %}
+          {%for list in data.articlelist%}
+           <p><img src="{{list.img}}"></p>
+           <p>{{list.note}}</p>
+          {%endfor%}
+        {%else%}
+        {{data.article|safe}}
+        {%endif%}
+
        {%comment%}
        {%for art in data.article%}
         {{art}}

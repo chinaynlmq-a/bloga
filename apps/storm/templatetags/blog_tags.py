@@ -80,6 +80,7 @@ def get_carousel_index():
 # 获取右侧栏热门专题幻灯片查询集
 @register.simple_tag
 def get_carousel_right():
+    #__gt 大于  __lte 小于等于
     return Carousel.objects.filter(number__gt=5, number__lte=10)
 
 

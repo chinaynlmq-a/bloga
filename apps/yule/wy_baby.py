@@ -40,9 +40,16 @@ def getWyBabyListDetail(durl):
      res = requests.get(durl)
      res.encoding = 'gbk'
      soup = BeautifulSoup(res.text,'html.parser')
-     title=soup.select('#epContentLeft h1')[0].text.strip()
-     time_source=soup.select('.post_time_source')[0].text.strip()
-     article=soup.select('.post_body .post_text') 
+     if soup.select('textarea'):
+         are=soup.select('textarea')[0]
+         are = are.text.strip()
+         are = json.loads(are)
+         #print(are.inf)
+         return {"title":are['info']['setname'],'articlelist':are['list']}
+     else:
+        title=soup.select('#epContentLeft h1')[0].text.strip()
+        time_source=soup.select('.post_time_source')[0].text.strip()
+        article=soup.select('.post_body .post_text') 
      detaills={"title":title,'time_source':time_source,"article":article}
      return detaills   
 
@@ -50,4 +57,4 @@ if __name__ == "__main__":
     #print(getWyBizList(2))
     # https://money.163.com/20/0819/07/FKCJDGA100259DLP.html
     #print(getWyBizListDetail('https://money.163.com/20/0819/07/FKCJDGA100259DLP.html'))
-    print(getWyBabyListDetail('https://baby.163.com/20/0821/09/FKHT7FT200367V0V.html')) 
+    print(getWyBabyListDetail('http://baby.163.com/photoview/5H1I0036/2104484.html#p=FL499V425H1I0036NOS')) 
