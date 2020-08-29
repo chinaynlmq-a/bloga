@@ -1114,31 +1114,31 @@ eval(function(h, b, i, d, g, f) {
               a(".search-expand input").focus()
           }, 300)
       });
-      a(".content .avatar, .sidebar .avatar, .pagecontent .avatar").lazyload({
-          placeholder: _deel.url + "/img/default.png",
-          event: "scrollstop"
-      });
+    //   a(".content .avatar, .sidebar .avatar, .pagecontent .avatar").lazyload({
+    //       placeholder: _deel.url + "/img/default.png",
+    //       event: "scrollstop"
+    //   });
       a(".wp-smiley").lazyload({
           placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC",
           event: "scrollstop"
       });
-      if (_deel.ajaxpager) {
-          a.ias({
-              thresholdMargin: -100,
-              triggerPageThreshold: 5,
-              history: false,
-              container: ".content",
-              item: ".excerpt",
-              pagination: ".pagination",
-              next: ".next-page a",
-              loader: '<div class="pagination-loading"><i class="fa fa-spinner fa-spin"></i> 数据载入中...</div>',
-              trigger: "下一页",
-              onPageChange: function(y, x, w) {
-                  window._gaq && window._gaq.push(["_trackPageview", jQuery("<a/>").attr("href", x)[0].pathname.replace(/^[^\/]/, "/")])
-              }
-          })
-      }
-      window.prettyPrint && window.prettyPrint();
+    //   if (_deel.ajaxpager) {
+    //       a.ias({
+    //           thresholdMargin: -100,
+    //           triggerPageThreshold: 5,
+    //           history: false,
+    //           container: ".content",
+    //           item: ".excerpt",
+    //           pagination: ".pagination",
+    //           next: ".next-page a",
+    //           loader: '<div class="pagination-loading"><i class="fa fa-spinner fa-spin"></i> 数据载入中...</div>',
+    //           trigger: "下一页",
+    //           onPageChange: function(y, x, w) {
+    //               window._gaq && window._gaq.push(["_trackPageview", jQuery("<a/>").attr("href", x)[0].pathname.replace(/^[^\/]/, "/")])
+    //           }
+    //       })
+    //   }
+    //   window.prettyPrint && window.prettyPrint();
       a(".article-tags a, .post-tags a").each(function() {
           a(this).tooltip({
               container: "body",
@@ -1185,42 +1185,42 @@ eval(function(h, b, i, d, g, f) {
           })
       }
       a(".article-content").removeAttr("height");
-      if (!h() && a(".sidebar").length) {
-          var v = a(".sidebar .widget")
-            , i = v.length;
-          if (i && 0 < _deel.roll[0] <= i && 0 < _deel.roll[1] <= i) {
-              a(window).scroll(function() {
-                  var x = document.documentElement.scrollTop + document.body.scrollTop;
-                  if (x > v.eq(i - 1).offset().top + v.eq(i - 1).height()) {
-                      if (a(".widgetRoller").length == 0) {
-                          v.parent().append('<div class="widgetRoller"></div>');
-                          v.eq(_deel.roll[0] - 1).clone().appendTo(".widgetRoller");
-                          if (_deel.roll[0] !== _deel.roll[1]) {
-                              v.eq(_deel.roll[1] - 1).clone().appendTo(".widgetRoller")
-                          }
-                          var w = 10;
-                          if (a("body").attr("id") == "hasfixed") {
-                              w = 69
-                          }
-                          a(".widgetRoller").css({
-                              position: "fixed",
-                              top: 10,
-                              zIndex: 0,
-                              width: 360
-                          })
-                      } else {
-                          a(".widgetRoller").fadeIn(300)
-                      }
-                  } else {
-                      a(".widgetRoller").hide()
-                  }
-              })
-          }
-          a(window).scroll(function() {
-              var w = a(".rollto");
-              document.documentElement.scrollTop + document.body.scrollTop > 200 ? w.fadeIn() : w.fadeOut()
-          })
-      }
+    //   if (!h() && a(".sidebar").length) {
+    //       var v = a(".sidebar .widget")
+    //         , i = v.length;
+    //       if (i && 0 < _deel.roll[0] <= i && 0 < _deel.roll[1] <= i) {
+    //           a(window).scroll(function() {
+    //               var x = document.documentElement.scrollTop + document.body.scrollTop;
+    //               if (x > v.eq(i - 1).offset().top + v.eq(i - 1).height()) {
+    //                   if (a(".widgetRoller").length == 0) {
+    //                       v.parent().append('<div class="widgetRoller"></div>');
+    //                       v.eq(_deel.roll[0] - 1).clone().appendTo(".widgetRoller");
+    //                       if (_deel.roll[0] !== _deel.roll[1]) {
+    //                           v.eq(_deel.roll[1] - 1).clone().appendTo(".widgetRoller")
+    //                       }
+    //                       var w = 10;
+    //                       if (a("body").attr("id") == "hasfixed") {
+    //                           w = 69
+    //                       }
+    //                       a(".widgetRoller").css({
+    //                           position: "fixed",
+    //                           top: 10,
+    //                           zIndex: 0,
+    //                           width: 360
+    //                       })
+    //                   } else {
+    //                       a(".widgetRoller").fadeIn(300)
+    //                   }
+    //               } else {
+    //                   a(".widgetRoller").hide()
+    //               }
+    //           })
+    //       }
+    //       a(window).scroll(function() {
+    //           var w = a(".rollto");
+    //           document.documentElement.scrollTop + document.body.scrollTop > 200 ? w.fadeIn() : w.fadeOut()
+    //       })
+    //   }
       var t = a("#nav-header").offset().top;
       a(window).scroll(function() {
           if (a(window).scrollTop() > t && a(window).width() > 719) {
@@ -1230,7 +1230,8 @@ eval(function(h, b, i, d, g, f) {
           }
       });
       a(".navbar .nav:first").after('<div class="screen-mini"><button data-type="screen-nav" class="btn btn-inverse screen-nav"><i class="fa fa-list"></i></button></div>');
-      a("body").append('<div class="rollto"><button class="btn btn-inverse" data-type="totop" title="回顶部"><i class="fa fa-arrow-up"></i></button>' + (_deel.commenton ? '<button class="btn btn-inverse" data-type="torespond" title="发评论"><i class="fa fa-comment-o"></i></button>' : "") + "</div>");
+    //   a("body").append('<div class="rollto"><button class="btn btn-inverse" data-type="totop" title="回顶部"><i class="fa fa-arrow-up"></i></button>' + (_deel.commenton ? '<button class="btn btn-inverse" data-type="torespond" title="发评论"><i class="fa fa-comment-o"></i></button>' : "") + "</div>");
+    a("body").append('<div class="rollto"><button class="btn btn-inverse" data-type="totop" title="回顶部"><i class="fa fa-arrow-up"></i></button></div>');
       (function(w) {
           w.extend({
               tipsBox: function(x) {

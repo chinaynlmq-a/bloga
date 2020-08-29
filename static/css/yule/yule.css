@@ -258,3 +258,25 @@
 .content{
   margin-right: 370px;
 }
+html.mhtml .content{
+  margin-right:0;
+}
+html.mhtml .feed-pic-wrapper{
+  display: flex;
+}
+html.mhtml .feed-wrapper .feed-four-pic .feed-pic{
+  height: auto;
+}
+html.mhtml .feed-wrapper .feed-four-pic .feed-pic .feed-four-location{
+  margin-right: 0;
+  padding-right: 0.26666666666666666rem;
+  width: 100%;
+  height:1.6rem;
+}
+html.mhtml .feed-wrapper .feed-common .feed-pic-style{
+  width: 100%;
+  height: 100%;
+}
+html.mhtml .feed-insert-tag{
+  padding-left:0.32rem;
+}
