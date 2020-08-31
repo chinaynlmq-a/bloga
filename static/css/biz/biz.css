@@ -71,3 +71,11 @@ html.mhtml .na_pic img{
   width: 100%;
   height: 1.9466666666666668rem;
 }
+
+/*详细页面*/
+html.mhtml h1.article-title a{
+  font-size:0.6133333333333333rem;
+  font-weight: bold;
+  padding: 0 0 0.2rem 0;
+  color: #404040;
+}

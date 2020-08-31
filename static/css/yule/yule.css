@@ -280,3 +280,15 @@ html.mhtml .feed-wrapper .feed-common .feed-pic-style{
 html.mhtml .feed-insert-tag{
   padding-left:0.32rem;
 }
+
+/*详细页面*/
+html.mhtml h1.article-title a{
+  font-size:0.6133333333333333rem;
+  font-weight: bold;
+  padding: 0 0 0.2rem 0;
+  color: #404040;
+}
+html.mhtml .article-content p img{
+   width: 100%;
+   display: block;
+}
