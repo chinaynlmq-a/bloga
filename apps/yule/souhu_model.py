@@ -1,10 +1,10 @@
 
 #!/usr/bin/env python3
 # # -*- coding: utf-8 -*-
-'搜狐 历史 module'
+'搜狐  module'
 
 __author__  ='LMQ'
-# 获取新闻的标题，内容，时间和评论数
+# 获取搜狐 的标题，内容
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -23,7 +23,8 @@ class GetSouhu:
 
         # 动态获取url链接地址
         WySource=WySource.format(category,size,page,callback)
-        res = requests.get(WySource,headers=self._headers)
+        #res = requests.get(WySource,headers=self._headers)
+        res = self.__get_requests(WySource)
         shList= res.text.strip()
         shList=shList.lstrip('/**/')
         shList=shList.lstrip(callback)
@@ -34,8 +35,8 @@ class GetSouhu:
 
     # 处理 统一的请求地址，返回soup 对象
     def __get_requests(self,url,encode='utf-8'):
-     res = requests.get(url)
-     res.encoding = 'utf-8'
+     res = requests.get(url,headers=self._headers)
+     res.encoding = encode
      soup = BeautifulSoup(res.text,'html.parser')
      return soup
 
@@ -45,10 +46,44 @@ class GetSouhu:
         title=soup.select('.text-title h1')[0].text
      else:
         title=soup.select('.title-info-title')[0].text.strip()
-     article=soup.select('#mp-editor')
-     detaills={"title":title,"article":article}
+     article=soup.select('#mp-editor p')
+     content = self.get_detailp_1(article[1:len(article)-2])
+     # 最后一条
+     tem = article[-2:-1]
+     temp_p =BeautifulSoup(str(tem[0]),'html.parser')
+     # 获取a标签到到上一个兄弟节点
+     if temp_p.a == None:
+       temp_p=''
+     else:
+       temp_p=temp_p.a.previous_sibling
+     #article=article[:len(article)-1]
+     content.append('<p class="ql-align-justify">'+temp_p+'</p>')
+     detaills={"title":title,"article":content}
      return detaills
+     
+    def getDetailPicture (self,url,encode='utf-8'):
+        soup = self.__get_requests(url,encode)
+        if len(soup.select('#article-title-hash')) == 0:
+            title='图片集合'
+        else:
+            title=soup.select('#article-title-hash')[0].text.strip()
+        imgUrlList=soup.select('.scroll img')
+        imgUrlTitle=soup.select('.pic-explain .txt p')
+        imgDict={}
+        imglen =0
+        while imglen<len(imgUrlList):
+            dit={imglen:{'title':str(imgUrlTitle[imglen]),'url':str(imgUrlList[imglen])}}
+            imgDict.update(dit)
+            imglen+=1
+        DetailPicture={"title":title,"imgs":imgDict}
+        return DetailPicture 
+
+    def get_detailp_1(self,p_arr):
+      plist=[]
+      for p in p_arr:
+        plist.append(str(p))
+      return plist
     
 
 if __name__ == "__main__":
-  print(GetSouhu().get_detail('https://www.sohu.com/a/414162242_100103848?spm=smpc.tag-page.fd-news.3.1597986862445ROid4Pf'))
+  print(GetSouhu().get_detail('https://www.sohu.com/a/415679775_114941?scm=1002.280027.0.0-0'))

@@ -49,12 +49,40 @@ def getWyBabyListDetail(durl):
      else:
         title=soup.select('#epContentLeft h1')[0].text.strip()
         time_source=soup.select('.post_time_source')[0].text.strip()
-        article=soup.select('.post_body .post_text') 
+        #article
+        allp=soup.select('.post_body #endText')[0]
+        # 转化为BeautifulSoup 对象处理html文件
+        ss = BeautifulSoup(str(allp),'html.parser')
+        # 获取divs个数
+        divs = ss.select('p > div')
+        divs_len = len(divs)
+        te = None
+        # 清除 div除了最后一个的内容
+        for i,v in enumerate(divs):
+            if(i>=divs_len-1):
+                te = ss.div.div.text    
+            ss.div.div.decompose()
+        allp_s=ss.select('p')
+        #print(ss.div.div)
+        #ss.div.div.extract()
+        #print(BeautifulSoup(allp[0].text,'html.parser')) 
+        article=get_list_str(allp_s)
+
+        if te:
+            article.append('<p>'+te+'</p')
+
      detaills={"title":title,'time_source':time_source,"article":article}
      return detaills   
+
+# 获取并重组list返回list字符串
+def get_list_str(p_arr):
+    plist=[]
+    for p in p_arr:
+        plist.append(str(p))
+    return plist
 
 if __name__ == "__main__":
     #print(getWyBizList(2))
     # https://money.163.com/20/0819/07/FKCJDGA100259DLP.html
     #print(getWyBizListDetail('https://money.163.com/20/0819/07/FKCJDGA100259DLP.html'))
-    print(getWyBabyListDetail('http://baby.163.com/photoview/5H1I0036/2104484.html#p=FL499V425H1I0036NOS')) 
+    print(getWyBabyListDetail('https://baby.163.com/20/0831/09/FLBNISRR00367V0V.html')) 

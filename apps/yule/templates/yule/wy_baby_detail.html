@@ -19,7 +19,10 @@
            <p>{{list.note}}</p>
           {%endfor%}
         {%else%}
-        {{data.article|safe}}
+        {#{data.article|safe}#}
+        {%for p in data.article%}
+        {{p|safe}}
+        {%endfor%}
         {%endif%}
 
        {%comment%}

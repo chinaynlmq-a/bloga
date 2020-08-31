@@ -11,7 +11,9 @@
           <h1 class="article-title"><a href="#">{{data.title}}</a></h1>
       </header>
       <article class="article-content">
-       {{data.article|safe}}
+        {%for art in data.article%}
+        {{art|safe}}
+       {%endfor%}
        {%comment%}
        {%for art in data.article%}
         {{art}}
