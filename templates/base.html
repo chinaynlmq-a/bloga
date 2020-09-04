@@ -74,8 +74,8 @@
             text-decoration: none;
         }
     </style>
-    <meta name="keywords" content="百网思新闻，百网思头条，娱乐八卦，小说，段子，美食，税务">
-    <meta name="description" content="百网思新闻，百网思头条，娱乐八卦，">
+    <meta name="keywords" content="百网思，百网思头条，娱乐八卦，小说，段子，美食，税务">
+    <meta name="description" content="百网思，百网思头条，娱乐八卦，">
     <script type="text/javascript">
         // jQuery(document).ready(function () {
         //     jQuery('.video').fitVids();
@@ -199,6 +199,7 @@
     <div class="speedbar" style="height: auto">
         <!--登录-->
         <!--目前登录功能只有注册登录其它没必要没做-->
+        {% comment %}
         <div class="pull-right">
             {% if request.session.username|default:'' == '' %}
                     <i class="fa fa-power-off"></i>
@@ -223,6 +224,7 @@
                     <a href="{% url 'accounts:logout' %}?next={{ request.path }}">退出</a>
             {% endif %}
         </div>
+        {%endcomment%}
         <!--登录注册结束-->
 
         <!--公告-->

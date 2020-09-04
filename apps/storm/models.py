@@ -86,6 +86,7 @@ class Category(models.Model):
 
     def get_article_list(self):
         return Article.objects.filter(category=self)
+        
 
 
 # 文章
@@ -220,5 +221,8 @@ class Activate(models.Model):
 
     def __int__(self):
         return self.id
+
+
+
 
 
