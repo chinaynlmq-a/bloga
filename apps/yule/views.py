@@ -33,7 +33,7 @@ def wyBabydetail(request):
     if request.method=='GET':
         url =request.GET.get('getUrl',default='110')
     #data = getWyBabyListDetail(parse.unquote(url))
-    data = GetWY().getDetail(parse.unquote(url),'gbk')
+    data = GetWY().getDetail(parse.unquote(url))
     return render(request, 'yule/wy_baby_detail.html', {'data':data})
 # 搜狐娱乐
 def index(request):

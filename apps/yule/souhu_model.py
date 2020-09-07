@@ -23,21 +23,27 @@ class GetSouhu:
 
         # 动态获取url链接地址
         WySource=WySource.format(category,size,page,callback)
-        #res = requests.get(WySource,headers=self._headers)
-        res = self.__get_requests(WySource)
-        shList= res.text.strip()
-        shList=shList.lstrip('/**/')
-        shList=shList.lstrip(callback)
-        shList=shList.lstrip('(')
-        shList=shList.rstrip(');')
-        shList = json.loads(shList)
-        return shList
+        _jsonp= self.__get_requests(url=WySource,tag='2',encode='utf-8')
+        # shList=shList.lstrip('/**/')
+        # shList=shList.lstrip(callback)
+        # shList=shList.lstrip('(')
+        # shList=shList.rstrip(');')
+        # shList = json.loads(shList)
+        try:
+          return json.loads(re.match(".*?({.*}).*",_jsonp,re.S).group(1))
+        except:
+          #raise ValueError('Invalid Input') 
+          return {}
+        #return shList
 
     # 处理 统一的请求地址，返回soup 对象
-    def __get_requests(self,url,encode='utf-8'):
+    def __get_requests(self,url,tag='1',encode='utf-8'):
      res = requests.get(url,headers=self._headers)
      res.encoding = encode
-     soup = BeautifulSoup(res.text,'html.parser')
+     if tag == '1':
+       soup = BeautifulSoup(res.text,'html.parser')
+       return soup
+     soup = res.text 
      return soup
 
     def get_detail(self,durl):
@@ -62,7 +68,7 @@ class GetSouhu:
      return detaills
      
     def getDetailPicture (self,url,encode='utf-8'):
-        soup = self.__get_requests(url,encode)
+        soup = self.__get_requests(url)
         if len(soup.select('#article-title-hash')) == 0:
             title='图片集合'
         else:
@@ -86,4 +92,4 @@ class GetSouhu:
     
 
 if __name__ == "__main__":
-  print(GetSouhu().get_detail('https://www.sohu.com/a/415679775_114941?scm=1002.280027.0.0-0'))
+  print(GetSouhu().get_list('131'))
