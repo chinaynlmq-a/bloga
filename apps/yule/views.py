@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from urllib import parse
 
-from yule.souhu_model import GetSouhu
+from yule.souhu_model import GetSouhu,Sina
 from yule.wy_model import GetWY
 # from .sinanew import getSohuYule,getSohuYuleDetailPicture,getSohuYuleDetail
 #from .wy_biz import getWyBizList,getWyBizListDetail
@@ -61,3 +61,7 @@ def detailPicture(request):
 
 def page_not_found(request):
     return render(request,'404.html','')
+
+def auto_article(request):
+    Sina().save_article()
+    return

@@ -1,6 +1,6 @@
 from django.urls import path,re_path
 
-from .views import index,detail,detailPicture,wylist,wybizdetail,wyBabyList,wyBabydetail,shHistoryLsit
+from .views import index,detail,detailPicture,wylist,wybizdetail,wyBabyList,wyBabydetail,shHistoryLsit,auto_article
 
 urlpatterns = [
     #娱乐
@@ -18,7 +18,9 @@ urlpatterns = [
     # 亲子详细
     path('babydetail', wyBabydetail, name='wyBabydetail'),
     #历史
-    path('history', shHistoryLsit, name='shHistoryLsit')
+    path('history', shHistoryLsit, name='shHistoryLsit'),
+
+    path('autoll', auto_article, name='auto_article')
     
     
     #path('pictures/', detailPicture, name='detail_picture')
