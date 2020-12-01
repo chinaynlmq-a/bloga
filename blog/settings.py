@@ -46,9 +46,11 @@ INSTALLED_APPS = [
     'haystack',  # 全文搜索应用 这个要放在其他应用之前
     'rest_framework',   # API
     'yule', #娱乐频道
+    'corsheaders', # 跨域模版
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #跨域模版 需要放在最前面
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,6 +59,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# 支持跨域配置开始
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True 
 
 ROOT_URLCONF = 'blog.urls'
 
@@ -97,7 +103,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'baisiwanglmq',
+        'PASSWORD': '123456',
         'NAME': 'blog',
         # 避免映射数据库时出现警告
         'OPTIONS': {

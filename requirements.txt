@@ -4,7 +4,8 @@ defusedxml==0.5.0
 Django==3.0
 django-allauth==0.38.0
 django-appconf==1.0.2
-django-cors-headers==2.5.2
+#解决跨域问题的模块
+django-cors-headers==3.5.0
 django-filter==2.1.0
 django-haystack==2.8.1
 django-imagekit==4.0.1
