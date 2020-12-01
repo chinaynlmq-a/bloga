@@ -9,8 +9,8 @@
     {% endblock keywords %}
 {% block top-file %}
 {#{% if user.is_authenticated %}#}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"> -->
+<link href="{% static 'highlights/github.css' %}" rel="stylesheet">
 {#{% endif %}#}
 <link href="{% static 'comment/css/base_comment.css' %}?v=20180114.008" rel="stylesheet">
 {% endblock %}
