@@ -24,12 +24,14 @@ from storm.feeds import AllArticleRssFeed
 
 from rest_framework.routers import DefaultRouter
 from api import views as api_views
+from api.mw import view
 if settings.API_FLAG:
     router = DefaultRouter()
     router.register(r'users', api_views.UserListSet)
     router.register(r'articles', api_views.ArticleListSet)
     router.register(r'tags', api_views.TagListSet)
     router.register(r'categorys', api_views.CategoryListSet)
+    router.register(r'mw', view.MwListSet)
 
 # 网站地图
 sitemaps = {

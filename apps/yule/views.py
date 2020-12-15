@@ -4,6 +4,7 @@ from urllib import parse
 
 from yule.souhu_model import GetSouhu,Sina
 from yule.wy_model import GetWY
+import yule.save_mw
 # from .sinanew import getSohuYule,getSohuYuleDetailPicture,getSohuYuleDetail
 #from .wy_biz import getWyBizList,getWyBizListDetail
 #from .wy_baby import *
@@ -65,3 +66,7 @@ def page_not_found(request):
 def auto_article(request):
     Sina().save_article()
     return
+
+def auto_savemw(request):
+    yule.save_mw.run()
+    return render(request,'temp.html',{'t':'s'})
