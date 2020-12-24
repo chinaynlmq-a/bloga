@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'haystack',  # 全文搜索应用 这个要放在其他应用之前
     'rest_framework',   # API
     'yule', #娱乐频道
+    'mdeditor', # 编辑
     'corsheaders', # 跨域模版
 ]
 
@@ -59,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 # 支持跨域配置开始
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True 
@@ -210,4 +210,3 @@ SMILES = {
     "shock": "eek",
     "!": "exclaim"
 }
-
